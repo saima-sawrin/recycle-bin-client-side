@@ -89,7 +89,7 @@ return (
                 <div className="form-control mt-6">
                     <input className="btn btn-primary" type="submit" value="Login" />
                 </div>
-                <p className='text-center'>New to Beauty Salon? <Link className='font-bold' to="/signup">Sign Up</Link> </p>
+                <p className='text-center'>New to Recycle Bin? <Link className='font-bold text-primary' to="/signup">Sign Up</Link> </p>
              <div className=' mb-2'>
              <div className="form-control mt-6">
              <button onClick={handleSignIn}  className="btn border-0  mb-2 " variant='outline-primary'> <FaGoogle className='text-yellow-400 me-2'></FaGoogle>  Log in with Google</button>
