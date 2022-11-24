@@ -1,16 +1,11 @@
 import { createBrowserRouter } from "react-router-dom";
 import PageNotFound from "../component/PageNotFound/PageNotFound";
-import DashboardLayout from "../Layout/DashboardLayout";
+import Blog from "../component/Pages/Blog/Blog";
+import Home from "../component/Pages/Home/Home";
+
 import Main from "../Layout/Main";
-import Appointment from "../pages/Appointment/Appointment/Appointment";
-import AppointmentBanner from "../pages/Appointment/AppointmentBanner/AppointmentBanner";
-import AllUsers from "../pages/Dashboard/AllUser/AllUsers";
-import MyAppointment from "../pages/Dashboard/MyAppointment/MyAppointment";
-import Home from "../pages/Home/Home/Home";
-import Login from "../pages/Login/Login";
-import SignUp from "../pages/SignUp/SignUp";
-import AdminRoute from "./AdminRoute";
-import PrivateRoute from "./PrivateRoute";
+
+
 
 const router = createBrowserRouter([
     {
@@ -50,8 +45,14 @@ const router = createBrowserRouter([
             
         // ]
         path:'*',
-        element: <PageNotFound></PageNotFound>
+        element: <PageNotFound></PageNotFound>,
+      
+    },
+    {
+        path:'/blog',
+        element: <Blog></Blog>,
     }
+
 ])
 
 export default router;
