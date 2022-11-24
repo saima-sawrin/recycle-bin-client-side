@@ -3,6 +3,7 @@ import PageNotFound from "../component/PageNotFound/PageNotFound";
 import Blog from "../component/Pages/Blog/Blog";
 import Categories from "../component/Pages/Categories/Categories";
 import Home from "../component/Pages/Home/Home";
+import Login from "../component/Pages/Login/Login";
 import ResaleProducts from "../component/Pages/ResaleProducts/ResaleProducts";
 
 import Main from "../Layout/Main";
@@ -24,14 +25,14 @@ const router = createBrowserRouter([
             },
             {
                 path:'/categories/:id',
-                loader:({params})=> fetch(`http://localhost:5000/categories/${params._id}`),
+                // loader:({params})=> fetch(`http://localhost:5000/categories/${params._id}`),
                 element: <ResaleProducts></ResaleProducts>,
             },
           
-            // {
-            //     path: '/login',
-            //     element: <Login></Login>
-            // },
+            {
+                path: '/login',
+                element: <Login></Login>
+            },
             // {
             //     path: '/signup',
             //     element: <SignUp></SignUp>

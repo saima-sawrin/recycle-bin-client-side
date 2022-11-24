@@ -1,5 +1,5 @@
 import React, { createContext, useEffect, useState } from 'react';
-import {createUserWithEmailAndPassword, getAuth, onAuthStateChanged, sendEmailVerification, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile} from 'firebase/auth';
+import {createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut} from 'firebase/auth';
 import app from '../firebase/firebase';
 
 
@@ -11,7 +11,7 @@ const AuthProvider = ({children}) => {
     const [loading , setLoading] = useState(true);
   console.log(user)
    
-    const signIN = (provider) =>{
+    const signIn = (provider) =>{
     setLoading(true)
     return signInWithPopup(auth , provider)
 
@@ -43,7 +43,7 @@ const AuthProvider = ({children}) => {
    }, [])
 
 
-    const authInfo = {user , signIN , LogOut , createUser , LogIn , loading };
+    const authInfo = {user , signIn , LogOut , createUser , LogIn , loading };
     return (
         <AuthContext.Provider value={authInfo}>
         {children}
