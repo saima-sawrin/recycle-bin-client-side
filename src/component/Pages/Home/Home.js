@@ -4,6 +4,7 @@ import Header from '../../Shared/Header/Header';
 import Banner from '../Banner/Banner';
 import Brands from '../Brands/Brands';
 import Categories from '../Categories/Categories';
+import Proven from '../Proven/Proven';
 
 const Home = () => {
     useTitle('home');
@@ -12,6 +13,7 @@ const Home = () => {
          <Banner></Banner>
          <Categories></Categories>
          <Brands></Brands>
+         <Proven></Proven>
         </div>
     );
 };

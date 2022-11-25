@@ -7,7 +7,7 @@ const Categories = () => {
     const{loading} = useContext(AuthContext)
 
     const[categories, setCategories] = useState([])
-        console.log(categories)
+        // console.log(categories)
 
     useEffect(()=>{
         fetch('http://localhost:5000/categories')
