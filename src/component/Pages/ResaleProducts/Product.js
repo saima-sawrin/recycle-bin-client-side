@@ -1,18 +1,37 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { AuthContext } from '../../../context/AuthProvider';
 
 const Product = ({product}) => {
-    const{_id, products} = product;
+  const {user} = useContext(AuthContext);
+  const{pName , resalePrice, pImg ,OriginalPrice , location, Use} = product;
     console.log(product)
     return (
         <div className="card card-side bg-base-100 shadow-xl">
-        <figure><img src={products.pImg} alt="Movie"/></figure>
-        <div className="card-body">
-          <h2 className="card-title">{products.pName}</h2>
-          <p>Click the button to watch on Jetflix app.</p>
-          <div className="card-actions justify-end">
-            <button className="btn btn-primary">Watch</button>
-          </div>
+        <div className="w-full max-w-sm  rounded-lg  dark:bg-gray-800 dark:border-gray-700  bg-base-100 shadow-xl">
+    <a href="#">
+        <img className="p-8 rounded-t-lg" src={pImg} alt="product image" />
+    </a>
+    <div className="px-5 pb-5 mb-4">
+        <a href="#">
+            <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white mb-2">{pName}</h5>
+        </a>
+        <div  >
+            <div>
+            <span className="text-xl font-semibold text-blue-500 dark:text-white">Resale Price:{resalePrice}</span>
+            <br />
+            <p className="  text-gray-900 dark:text-white">Original Price: {OriginalPrice}</p>
+            <p className="  text-gray-900 dark:text-white">Location: {location}</p>
+            <p className="  text-gray-900 dark:text-white">Years of Use: {Use}</p>
+            <p>Seller:{user?.displayName}</p>
+            </div>
         </div>
+        <div className='mt-5'>
+   
+        <label htmlFor="confirm-modal" className="btn text-white bg-green-600 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Book Now</label>
+        </div>
+    </div>
+</div>
+
       </div>
     );
 };
