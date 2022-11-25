@@ -1,11 +1,14 @@
 import React, { useContext } from 'react';
+import toast from 'react-hot-toast';
 import { AuthContext } from '../../../context/AuthProvider';
 
 const Modal = ({p}) => {
     const{user} = useContext(AuthContext);
     const{pName , resalePrice } = p;
      console.log(p)
-    
+    const handleToast =()=>{
+        toast.success('Successfully Booked Your Product')
+    }
     return (
         <div>
    <input type="checkbox" id="confirm-modal" className="modal-toggle" />
@@ -25,7 +28,8 @@ const Modal = ({p}) => {
 
 
     <div className="modal-action">
-      <label htmlFor="confirm-modal" className="btn">submit</label>
+      <label htmlFor="confirm-modal"><button onClick={handleToast} className='btn'>Submit</button></label>
+  
     </div>
   </div>
 </div>
