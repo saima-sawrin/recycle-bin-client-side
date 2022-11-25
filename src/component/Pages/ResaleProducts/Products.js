@@ -18,12 +18,10 @@ const Products = () => {
 }
 <div>
 {
-    // <Modal key={products.id} products={products}></Modal>
+
     products.map(p => <Modal key={p.p_id} p={p}></Modal>)
 }
 </div>
-
-
      
      </div>
 

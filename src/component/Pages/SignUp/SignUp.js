@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import img from '../../assets/login.svg';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../context/AuthProvider';
 
 
@@ -10,6 +10,10 @@ const SignUp = () => {
 
     const {createUser } = useContext(AuthContext);
     const[error , setError] = useState('');
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/';
+   
    
     
      const handleSubmit = event => {
@@ -24,6 +28,7 @@ const SignUp = () => {
          .then( result => {
              const user = result.user;
              alert('Successfully Registered ');
+             navigate(from, {replace:true});
              console.log(user);
              form.reset();
             
