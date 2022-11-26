@@ -29,7 +29,7 @@ const Advertise = () => {
       
 
       {
-           ads.map(ad =><Ad key={ad._id} ad={ad}></Ad>)
+           ads?.map(ad => <Ad key={ad._id} ad={ad}></Ad>)
       }
   
    </div>
