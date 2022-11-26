@@ -4,7 +4,7 @@ import Modal from '../../Shared/Modal/Modal';
 
 const Product = ({product}) => {
   const {user} = useContext(AuthContext);
-  const{pName , resalePrice, pImg ,OriginalPrice , location, Use} = product;
+  const{pName , resalePrice, pImg ,OriginalPrice , location, Use , seller} = product;
     console.log(product)
     return (
         <div className="card card-side bg-base-100 shadow-xl">
@@ -23,7 +23,7 @@ const Product = ({product}) => {
             <p className="  text-gray-900 dark:text-white">Original Price: {OriginalPrice}</p>
             <p className="  text-gray-900 dark:text-white">Location: {location}</p>
             <p className="  text-gray-900 dark:text-white">Years of Use: {Use}</p>
-            <p>Seller:{user?.displayName}</p>
+            <p>Seller:{seller}</p>
             </div>
         </div>
         <div className='mt-5'>

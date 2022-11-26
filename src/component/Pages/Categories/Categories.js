@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../context/AuthProvider';
+import Advertise from '../Advertise/Advertise';
 import Category from './Category';
 
 const Categories = () => {
@@ -23,10 +24,10 @@ const Categories = () => {
         
         }
     return (
-        <div className='text-align-center  mt-4'>
-              <h2 className="max-w-lg mb-5 font-sans text-3xl font-bold tracking-tight  sm:text-4xl sm:leading-none md:mb-6 text-center group  ">
-     Our Services
-     </h2>
+  <div className='text-center'>
+          <div className='text-align-center   mt-4'>
+          <h3 className='text-4xl font-bold text-center'> Our Services</h3>
+   
      <div className="container flex flex-col justify-center p-4 mx-auto">
      <div className='categoryCard grid grid-cols-1 gap-4 lg:grid-cols-3 sm:grid-cols-2'>
         {
@@ -37,6 +38,7 @@ const Categories = () => {
      </div>
 
         </div>
+  </div>
     );
 };
 

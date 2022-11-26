@@ -22,7 +22,7 @@ const Products = () => {
     products.map(p => <Modal key={p.p_id} p={p}></Modal>)
 }
 </div>
-     
+
      </div>
 
     );

@@ -21,9 +21,12 @@ const SignUp = () => {
          const form = event.target;
          const name = form.name.value;
          const email = form.email.value;
+         const photoUrl = form.img.value;
          const password = form.password.value;
-         console.log(name, email, password);
-        
+         const rule = form.rule.password;
+         console.log(name, email, password, rule, photoUrl);
+
+
          createUser(email, password)
          .then( result => {
              const user = result.user;
@@ -39,6 +42,28 @@ const SignUp = () => {
              setError(e.message)
  
          });
+
+         const users = {
+            name:name,
+            email:email,
+            rule,
+            img
+          
+        }
+            fetch('http://localhost:5000/users',{
+                method:'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                  },
+                  body: JSON.stringify(users),
+            })
+            .then(res=> res.json())
+            .then(data=> {
+                if(data.acknowledged){
+                    alert('successfully added')
+                    event.target.reset();
+                }
+            })
          
          
      }
@@ -68,10 +93,25 @@ const SignUp = () => {
                     </div>
                     <div className="form-control">
                         <label className="label">
+                            <span className="label-text">PhotoUrl</span>
+                        </label>
+                        <input type="text" name='img' placeholder="photoUrl" className="input input-bordered" required/>
+                    </div>
+                    <div className="form-control">
+                        <label className="label">
                             <span className="label-text">Password</span>
                         </label>
                         <input type="password" name='password' placeholder="password" className="input input-bordered" required/>
-                        
+                    </div>
+                    <div className="form-control">
+                    <label for="countries" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select your country</label>
+                
+                    <select id="countries" name='rule' className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg  focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600  dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                      <option>select your rule</option>
+                      <option>Buyer</option>
+                      <option>Seller</option> 
+                      
+                  </select>
                     </div>
                     <div className="form-control mt-6">
                         <input className="btn btn-primary" type="submit" value="Sign Up" />

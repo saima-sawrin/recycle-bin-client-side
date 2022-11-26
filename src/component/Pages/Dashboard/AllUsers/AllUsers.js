@@ -19,7 +19,7 @@ const AllUsers = () => {
     },
         [])
 
-    const handleMakeAdmin = id => {
+    const handleSellerVerify = id => {
         fetch(`http://localhost:5000/users/admin/${id}`, {
             method: 'PUT', 
             headers: {
@@ -29,7 +29,7 @@ const AllUsers = () => {
         .then(res => res.json())
         .then(data => {
             if(data.modifiedCount > 0){
-                toast.success('Make admin successful.')
+                toast.success(' successfully verified')
               
             }
         })
@@ -45,7 +45,7 @@ const AllUsers = () => {
         <th></th>
         <th>Name</th>
         <th>Email</th>
-        <th>Admin</th>
+        <th>Verify</th>
         <th>Delete</th>
       </tr>
     </thead>
@@ -55,7 +55,7 @@ const AllUsers = () => {
             <th>{i+1}</th>
             <td>{user.name}</td>
             <td>{user.email}</td>
-            <td>{ user?.role !== 'admin' && <button onClick={() => handleMakeAdmin(user._id)} className='btn btn-xs btn-primary'>Make Admin</button>}</td>
+            <td>{ user?.role !== 'seller' && <button onClick={() => handleSellerVerify(user._id)} className='btn btn-xs btn-primary'>Verify</button>}</td>
             <td><button className='btn btn-xs btn-danger'>Delete</button></td>
           </tr>)
       }
