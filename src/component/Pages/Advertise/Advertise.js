@@ -25,7 +25,8 @@ const Advertise = () => {
     return (
      <div className='mt-4 '>
         <h3 className='text-4xl font-bold text-center'>Available Products</h3>
-        <div className="relative w-full flex gap-4 py-6 overflow-x-auto">
+        {/* <div className="relative w-full flex gap-4 py-6 overflow-x-auto"> */}
+        <div className="grid gap-6 row-gap-5 mb-8 lg:grid-cols-4 sm:row-gap-6 sm:grid-cols-2">
       
 
       {
