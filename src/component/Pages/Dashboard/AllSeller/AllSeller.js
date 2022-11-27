@@ -1,14 +1,12 @@
-import { useQuery } from '@tanstack/react-query';
 import React, { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 
-const AllUsers = () => {
- 
-  const[users,setUsers] = useState();
+const AllSeller = () => {
+    const[sellers,setSellers] = useState();
     useEffect(()=>{
         fetch('http://localhost:5000/users')
         .then(res => res.json())
-        .then(data =>setUsers(data))
+        .then(data =>setSellers(data))
     },
         [])
 
@@ -27,10 +25,10 @@ const AllUsers = () => {
             }
         })
     }
-
     return (
         <div>
-            <h2 className="text-3xl">All Users</h2>
+              <div>
+            <h2 className="text-3xl">All Sellers</h2>
             <div className="overflow-x-auto">
   <table className="table w-full">
     <thead>
@@ -39,20 +37,19 @@ const AllUsers = () => {
         <th>Name</th>
         <th>Email</th>
         <th>Role</th>
-        <th>Status</th>
+        <th>Verify</th>
         <th>Delete</th>
       </tr>
     </thead>
     <tbody>
       {
-        users?.map((user, i) =><tr key={user._id}>
-            <th>{i+1}</th>
-            <td>{user.name}</td>
-            <td>{user.email}</td>
-            <td>{user.role}</td>
-            <td>{ user?.status !== 'verify' && <button onClick={() => handleSellerVerify(user._id)} className='btn btn-xs btn-primary '>Verify</button>}
-     </td>
-            <td><button className='btn btn-xs btn-danger'>Delete</button></td>
+        sellers?.map((user, i) =><tr key={user._id}>
+            <th>{user?.role === 'seller' && i+1}</th>
+            <td>{user?.role === 'seller' &&  user.name}</td>
+            <td>{user?.role === 'seller' && user.email}</td>
+            <td>{user?.role === 'seller' &&user.role}</td>
+            <td>{ user?.role === 'seller' && <button onClick={() => handleSellerVerify(user._id)} className='btn btn-xs btn-primary aria-disabled="true"'>Verify</button>}</td>
+            <td>{ user?.role === 'seller' && <button className='btn btn-xs btn-primary'>Delete</button>}</td>
           </tr>)
       }
       
@@ -60,7 +57,8 @@ const AllUsers = () => {
   </table>
 </div>
         </div>
+        </div>
     );
 };
 
-export default AllUsers;
+export default AllSeller;

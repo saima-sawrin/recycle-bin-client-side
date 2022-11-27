@@ -3,8 +3,12 @@ import PageNotFound from "../component/PageNotFound/PageNotFound";
 import Advertise from "../component/Pages/Advertise/Advertise";
 import Blog from "../component/Pages/Blog/Blog";
 import Categories from "../component/Pages/Categories/Categories";
+import AllBuyer from "../component/Pages/Dashboard/AllBuyer/AllBuyer";
+import AllSeller from "../component/Pages/Dashboard/AllSeller/AllSeller";
 import AllUsers from "../component/Pages/Dashboard/AllUsers/AllUsers";
+import MyOrders from "../component/Pages/Dashboard/Buyers/MyOrders/MyOrders";
 import Dashboard from "../component/Pages/Dashboard/Dashboard";
+import AddProduct from "../component/Pages/Dashboard/Seller/AddProduct";
 import Home from "../component/Pages/Home/Home";
 import Login from "../component/Pages/Login/Login";
 import Products from "../component/Pages/ResaleProducts/Products";
@@ -12,6 +16,8 @@ import SignUp from "../component/Pages/SignUp/SignUp";
 import DashboardLayout from "../Layout/DashboardLayout";
 
 import Main from "../Layout/Main";
+import AdminRoute from "./AdminRoute";
+
 import PrivateRoute from "./PrivateRouter";
 
 
@@ -34,11 +40,8 @@ const router = createBrowserRouter([
                 loader:({params})=> fetch(`http://localhost:5000/categories/${params.id}`),
                 element: <PrivateRoute><Products></Products></PrivateRoute>
             },
-            // {
-            //     path:'/',
-            //     loader:()=> fetch('http://localhost:5000/products'),
-            //     element: <Advertise></Advertise>
-            // },
+          
+    
           
             {
                 path: '/login',
@@ -48,10 +51,7 @@ const router = createBrowserRouter([
                 path: '/signup',
                 element: <SignUp></SignUp>
             },
-            // {
-            //     path: '/appointment',
-            //     element: <Appointment></Appointment>
-            // },
+          
         ]
     },
 
@@ -60,9 +60,30 @@ const router = createBrowserRouter([
             element: <PrivateRoute><DashboardLayout></DashboardLayout></PrivateRoute>,
             children:[
                 {
-                    path:'/dashboard',
-                    element: <AllUsers></AllUsers>
-                }
+                    path:'/dashboard/allUser',
+                    element:<AdminRoute><AllUsers></AllUsers></AdminRoute>
+                  
+                },
+                {
+                    path:'/dashboard/allSeller',
+                    element: <AdminRoute>  <AllSeller></AllSeller></AdminRoute>
+             
+                },
+                {
+                    path:'/dashboard/allBuyer',
+                    element: <AdminRoute><AllBuyer></AllBuyer></AdminRoute>
+                },
+                {
+                    path:'/dashboard/orders',
+                    element: <MyOrders></MyOrders>
+               
+                   
+                },
+                {
+                    path:'/dashboard/addProducts',
+                    loader:()=> fetch(`http://localhost:5000/products`),
+                    element: <AddProduct></AddProduct>
+                },
             ]
           },
   

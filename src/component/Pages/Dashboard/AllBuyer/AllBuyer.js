@@ -1,18 +1,16 @@
-import { useQuery } from '@tanstack/react-query';
 import React, { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 
-const AllUsers = () => {
- 
-  const[users,setUsers] = useState();
+const AllBuyer = () => {
+    const[buyers,setbuyers] = useState();
     useEffect(()=>{
         fetch('http://localhost:5000/users')
         .then(res => res.json())
-        .then(data =>setUsers(data))
+        .then(data =>setbuyers(data))
     },
         [])
 
-    const handleSellerVerify = id => {
+    const handleBuyerVerify = id => {
         fetch(`http://localhost:5000/users/${id}`, {
             method: 'PUT', 
             headers: {
@@ -27,10 +25,10 @@ const AllUsers = () => {
             }
         })
     }
-
     return (
         <div>
-            <h2 className="text-3xl">All Users</h2>
+              <div>
+            <h2 className="text-3xl">All buyers</h2>
             <div className="overflow-x-auto">
   <table className="table w-full">
     <thead>
@@ -39,20 +37,19 @@ const AllUsers = () => {
         <th>Name</th>
         <th>Email</th>
         <th>Role</th>
-        <th>Status</th>
+        <th>Verify</th>
         <th>Delete</th>
       </tr>
     </thead>
     <tbody>
       {
-        users?.map((user, i) =><tr key={user._id}>
-            <th>{i+1}</th>
-            <td>{user.name}</td>
-            <td>{user.email}</td>
-            <td>{user.role}</td>
-            <td>{ user?.status !== 'verify' && <button onClick={() => handleSellerVerify(user._id)} className='btn btn-xs btn-primary '>Verify</button>}
-     </td>
-            <td><button className='btn btn-xs btn-danger'>Delete</button></td>
+        buyers?.map((user, i) =><tr key={user._id}>
+            <th>{user?.role === 'buyer' && i+1}</th>
+            <td>{user?.role === 'buyer' &&  user.name}</td>
+            <td>{user?.role === 'buyer' && user.email}</td>
+            <td>{user?.role === 'buyer' &&user.role}</td>
+            <td>{ user?.role === 'buyer' && <button onClick={() => handleBuyerVerify(user._id)} className='btn btn-xs btn-primary'>Verify</button>}</td>
+            <td>{ user?.role === 'buyer' && <button className='btn btn-xs btn-primary'>Delete</button>}</td>
           </tr>)
       }
       
@@ -60,7 +57,8 @@ const AllUsers = () => {
   </table>
 </div>
         </div>
+        </div>
     );
 };
 
-export default AllUsers;
+export default AllBuyer;

@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { useLoaderData } from 'react-router-dom';
-import { AuthContext } from '../../../context/AuthProvider';
 import Modal from '../../Shared/Modal/Modal';
+import MyOrders from '../Dashboard/Buyers/MyOrders/MyOrders';
 import Product from './Product';
 
 const Products = () => {
@@ -22,6 +22,7 @@ const Products = () => {
     products.map(p => <Modal key={p.p_id} p={p}></Modal>)
 }
 </div>
+
 
      </div>
 

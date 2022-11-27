@@ -12,14 +12,14 @@ const Blog = () => {
 			<details>
 				<summary className="py-2 outline-none cursor-pointer focus:underline"> What are the different ways to manage a state in a React application?</summary>
 				<div className="px-4 pb-4">
-					<p>There are four main types of state you need to properly manage in your React apps:
+					<p>There are four main types of state you need to properly manage in your React apps:  </p>
                         <ol>
                             <li> 1.Local state</li>
                             <li> 2.Global state</li>
                             <li> 3.Server state</li>
                             <li> 4.URL state</li>
                         </ol>
-                    </p>
+                  
 				</div>
 			</details>
 			<details>
