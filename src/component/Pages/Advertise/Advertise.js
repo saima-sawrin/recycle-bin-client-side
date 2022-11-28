@@ -8,7 +8,7 @@ const Advertise = () => {
     // const {advertises} = useLoaderData();
     const[ ads,setAds] = useState();
     useEffect(()=>{
-        fetch('https://recycle-bin-server-side-saima-sawrin.vercel.app/products')
+        fetch(' https://recycle-bin-server-side-saima-sawrin.vercel.app/products')
         .then(res => res.json())
         .then(data => setAds(data))
     },

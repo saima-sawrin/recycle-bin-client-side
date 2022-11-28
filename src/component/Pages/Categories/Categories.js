@@ -11,7 +11,7 @@ const Categories = () => {
         // console.log(categories)
 
     useEffect(()=>{
-        fetch('https://recycle-bin-server-side-saima-sawrin.vercel.app/categories')
+        fetch(' https://recycle-bin-server-side-saima-sawrin.vercel.app/categories')
         .then(res => res.json())
         .then(data => setCategories(data))
     },

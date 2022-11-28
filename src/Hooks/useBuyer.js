@@ -5,7 +5,7 @@ const useBuyer = (email) => {
     const [isBuyerLoading, setIsBuyerLoading] = useState(true);
     useEffect(() => {
         if (email) {
-            fetch(`https://recycle-bin-server-side-saima-sawrin.vercel.app/users/${email}`)
+            fetch(` https://recycle-bin-server-side-saima-sawrin.vercel.app/users/${email}`)
                 .then(res => res.json())
                 .then(data => {
                     console.log(data);

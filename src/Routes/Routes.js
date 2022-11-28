@@ -13,6 +13,7 @@ import Home from "../component/Pages/Home/Home";
 import Login from "../component/Pages/Login/Login";
 import Products from "../component/Pages/ResaleProducts/Products";
 import SignUp from "../component/Pages/SignUp/SignUp";
+import Modal from "../component/Shared/Modal/Modal";
 import DashboardLayout from "../Layout/DashboardLayout";
 
 import Main from "../Layout/Main";
@@ -37,10 +38,14 @@ const router = createBrowserRouter([
             },
             {
                 path:'/categories/:id',
-                loader:({params})=> fetch(`https://recycle-bin-server-side-saima-sawrin.vercel.app/categories/${params.id}`),
-                element: <PrivateRoute><Products></Products></PrivateRoute>
+                loader:({params})=> fetch(` https://recycle-bin-server-side-saima-sawrin.vercel.app/categories/${params.id}`),
+                element: <Products></Products>
             },
-          
+            {
+                path:'/categories/:id',
+                // loader:({params})=> fetch(` https://recycle-bin-server-side-saima-sawrin.vercel.app/categories/${params.id}`),
+                element: <PrivateRoute><Modal></Modal></PrivateRoute>
+            },
     
           
             {
@@ -81,7 +86,7 @@ const router = createBrowserRouter([
                 },
                 {
                     path:'/dashboard/addProducts',
-                    loader:()=> fetch(`https://recycle-bin-server-side-saima-sawrin.vercel.app/products`),
+                    loader:()=> fetch(` https://recycle-bin-server-side-saima-sawrin.vercel.app/products`),
                     element: <AddProduct></AddProduct>
                 },
             ]

@@ -50,7 +50,7 @@ const SignUp = () => {
             img
           
         }
-            fetch('https://recycle-bin-server-side-saima-sawrin.vercel.app/users',{
+            fetch(' https://recycle-bin-server-side-saima-sawrin.vercel.app/users',{
                 method:'POST',
                 headers: {
                     'Content-Type': 'application/json',

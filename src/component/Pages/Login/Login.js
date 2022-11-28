@@ -42,11 +42,7 @@ const Login = () => {
            }
             
         })
-        .catch(error => {
-           console.error(error)
-           setError(error.message)
-           
-       })
+   
        
     }
     const handleSignIn = () =>{

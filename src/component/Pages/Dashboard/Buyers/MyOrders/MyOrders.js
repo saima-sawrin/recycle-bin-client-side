@@ -11,7 +11,7 @@ const MyOrders = () => {
         // console.log(categories)
 
     useEffect(()=>{
-        fetch('https://recycle-bin-server-side-saima-sawrin.vercel.app/bookings')
+        fetch(' https://recycle-bin-server-side-saima-sawrin.vercel.app/bookings')
         .then(res => res.json())
         .then(data => setOrders(data))
     },

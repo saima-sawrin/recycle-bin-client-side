@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../../../context/AuthProvider';
-import Modal from '../../Shared/Modal/Modal';
+
 
 const Product = ({product}) => {
   const {user} = useContext(AuthContext);

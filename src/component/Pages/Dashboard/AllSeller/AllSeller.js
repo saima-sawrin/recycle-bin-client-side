@@ -4,14 +4,14 @@ import toast from 'react-hot-toast';
 const AllSeller = () => {
     const[sellers,setSellers] = useState();
     useEffect(()=>{
-        fetch('https://recycle-bin-server-side-saima-sawrin.vercel.app/users')
+        fetch(' https://recycle-bin-server-side-saima-sawrin.vercel.app/users')
         .then(res => res.json())
         .then(data =>setSellers(data))
     },
         [])
 
     const handleSellerVerify = id => {
-        fetch(`https://recycle-bin-server-side-saima-sawrin.vercel.app/users/${id}`, {
+        fetch(` https://recycle-bin-server-side-saima-sawrin.vercel.app/users/${id}`, {
             method: 'PUT', 
             headers: {
                 authorization: `bearer ${localStorage.getItem('accessToken')}`
