@@ -11,7 +11,7 @@ const MyOrders = () => {
         // console.log(categories)
 
     useEffect(()=>{
-        fetch('http://localhost:5000/bookings')
+        fetch('https://recycle-bin-server-side-saima-sawrin.vercel.app/bookings')
         .then(res => res.json())
         .then(data => setOrders(data))
     },

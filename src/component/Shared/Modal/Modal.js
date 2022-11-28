@@ -28,10 +28,8 @@ const Modal = ({p}) => {
          location
       }
 
-      // TODO: send data to the server
-      // and once data is saved then close the modal 
-      // and display success toast
-      fetch('http://localhost:5000/bookings', {
+
+      fetch('https://recycle-bin-server-side-saima-sawrin.vercel.app/bookings', {
           method: 'POST',
           headers: {
               'content-type': 'application/json'

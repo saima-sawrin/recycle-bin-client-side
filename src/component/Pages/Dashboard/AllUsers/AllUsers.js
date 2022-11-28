@@ -6,14 +6,14 @@ const AllUsers = () => {
  
   const[users,setUsers] = useState();
     useEffect(()=>{
-        fetch('http://localhost:5000/users')
+        fetch('https://recycle-bin-server-side-saima-sawrin.vercel.app/users')
         .then(res => res.json())
         .then(data =>setUsers(data))
     },
         [])
 
     const handleSellerVerify = id => {
-        fetch(`http://localhost:5000/users/${id}`, {
+        fetch(`https://recycle-bin-server-side-saima-sawrin.vercel.app/users/${id}`, {
             method: 'PUT', 
             headers: {
                 authorization: `bearer ${localStorage.getItem('accessToken')}`

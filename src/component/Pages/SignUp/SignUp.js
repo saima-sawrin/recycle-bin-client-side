@@ -50,7 +50,7 @@ const SignUp = () => {
             img
           
         }
-            fetch('http://localhost:5000/users',{
+            fetch('https://recycle-bin-server-side-saima-sawrin.vercel.app/users',{
                 method:'POST',
                 headers: {
                     'Content-Type': 'application/json',

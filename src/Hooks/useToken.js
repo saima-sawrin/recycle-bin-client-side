@@ -4,7 +4,7 @@ const useToken = email => {
     const [token, setToken] = useState('');
     useEffect(() => {
         if (email) {
-            fetch(`http://localhost:5000/users?email=${email}`)
+            fetch(`https://recycle-bin-server-side-saima-sawrin.vercel.app/users?email=${email}`)
                 .then(res => res.json())
                 .then(data => {
                     if (data.accessToken) {

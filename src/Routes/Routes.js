@@ -37,7 +37,7 @@ const router = createBrowserRouter([
             },
             {
                 path:'/categories/:id',
-                loader:({params})=> fetch(`http://localhost:5000/categories/${params.id}`),
+                loader:({params})=> fetch(`https://recycle-bin-server-side-saima-sawrin.vercel.app/categories/${params.id}`),
                 element: <PrivateRoute><Products></Products></PrivateRoute>
             },
           
@@ -81,7 +81,7 @@ const router = createBrowserRouter([
                 },
                 {
                     path:'/dashboard/addProducts',
-                    loader:()=> fetch(`http://localhost:5000/products`),
+                    loader:()=> fetch(`https://recycle-bin-server-side-saima-sawrin.vercel.app/products`),
                     element: <AddProduct></AddProduct>
                 },
             ]

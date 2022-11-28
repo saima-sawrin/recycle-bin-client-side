@@ -33,7 +33,7 @@ const AddProduct = () => {
         Use
       
     }
-        fetch('http://localhost:5000/products',{
+        fetch('https://recycle-bin-server-side-saima-sawrin.vercel.app/products',{
             method:'POST',
             headers: {
                 'Content-Type': 'application/json',
